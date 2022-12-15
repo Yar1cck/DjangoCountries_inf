@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countries</title>
+    <style>
+        .menu{
+        border: 2px solid green;
+        }
+        .main{
+        border: 4px solid green;
+
+        content {
+        margin-top: auto;
+        margin-botton: 20px;
+        }
+        footer {
+        border: 2px solid blue;
+
+        }
+    </style>
+</head>
+<body>
+    <nav class = "menu">
+        <a href = '/'/>Домой</a> / <a href = '/countries-list'/>К списку стран</a>
+    </nav>
+
+<center>
+    <big>
+        <nav class = "main">
+            <h1>Страны, в которых говорят на {{ language }}:</h1>
+        </nav>
+    </big>
+</center>
+<big>
+    <nav class = "menu">
+        <ol>
+            {% for countr in country %}
+                <li><a>{{ countr }}</a></li>
+            {% endfor %}
+        </ol>
+    </nav>
+</big>
+</body>
+</html>

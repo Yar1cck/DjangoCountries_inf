@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все страны</title>
+            <style>
+        .menu{
+        border: 2px solid green;
+        }
+        .main{
+        border: 4px solid green;
+
+        content {
+        margin-top: auto;
+        margin-botton: 20px;
+        }
+        footer {
+        border: 2px solid blue;
+
+        }
+    </style>
+</head>
+<body>
+        <nav class = "menu">
+            <a href = '/'/>Домой</a> / <a href = '/countries-list'/>К списку стран</a>
+        </nav>
+<big>
+    <center>
+        <nav class = "main">
+            {% for word in letters %}
+                <a href="?word={{ word }}">{{ word }}</a>
+            {% endfor %}
+        </nav>
+    </center>
+</big>
+        <nav class = "main">
+                    <ol>
+                    {% for country_name in page_countries %}
+                        <li><a href="/countries-list/{{ country_name }}">{{ country_name }}</a></li>
+                    {% endfor %}
+                    </ol>
+        </nav>
+    </center>
+<div class="pagination">
+    <span class="tuda_suda">
+        {% if page_countries.has_previous %}
+            {% if word == None %}
+                <a href="?page={{ page_countries.previous_page_number }}"><= Предыдущая</a>
+            {% else %}
+                <a href="?page={{ page_countries.previous_page_number }}&word={{ word }}"><= Предыдущая</a>
+            {% endif %}
+        {% endif %}
+        <span class="count">
+            Page {{ page_countries.number }} of {{ page_countries.paginator.num_pages }}
+        </span>
+
+        {% if page_countries.has_next %}
+            {% if word == None %}
+                <a href="?page={{ page_countries.next_page_number }}">Следующая =></a>
+            {% else %}
+                <a href="?page={{ page_countries.next_page_number }}&word={{ word }}">Следующая =></a>
+            {% endif %}
+       {% endif %}
+    </span>
+</div>
+</body>
+</html>

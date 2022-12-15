@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>All languages</title>
+    <style>
+        .menu{
+        border: 2px solid green;
+        }
+        .main{
+        border: 4px solid green;
+
+        content {
+        margin-top: auto;
+        margin-botton: 20px;
+        }
+        footer {
+        border: 2px solid blue;
+
+        }
+    </style>
+</head>
+<body>
+    <nav class = "menu">
+        <a href = '/'/>Домой</a> / <a href = '/countries-list'/>К списку стран</a>
+    </nav>
+<nav class = "main">
+    <ol>
+        {% for language in languages %}
+            <li><a href = '/countries-list/speaking-countries/{{ language }}'> {{ language }}</a></li>
+        {% endfor %}
+    </ol>
+</nav>
+
+</body>
+</html>
